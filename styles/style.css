@@ -159,31 +159,31 @@
 }
 
 .section:nth-child(2) .section__image {
-  filter: saturate(30%) brightness(120%) contrast(90%);
+  filter: saturate(30%) brightness(120%) contrast(90%); /* изменяет насыщенность, яркость и контрастность изображения */
 }
 
-.section:nth-child(3) .section__image {
+.section:nth-child(3) .section__image { /* увеличивает насыщенность изображения в 3 раза */
   filter: saturate(300%);
 }
 
-.section:nth-child(4) .section__image {
+.section:nth-child(4) .section__image { /* изменяет оттенок изображения на 30 градусов */
   filter: hue-rotate(30deg);
 }
 
-.section:nth-child(5) .section__image {
+.section:nth-child(5) .section__image { /* инвертирует цвета изображения на 80% */
   filter: invert(80%);
 }
 
-.section:nth-child(6) .section__image {
+.section:nth-child(6) .section__image { /* применяет сепию к изображению на 90% */
   filter: sepia(90%);
 }
 
-.section:nth-child(7) .section__image {
+.section:nth-child(7) .section__image { /* размывает изображение с радиусом 1rem */
   filter: blur(1rem);
 }
 
 .section:nth-child(8) .section__image {
-  filter: blur(0.1rem) hue-rotate(90deg) saturate(120%) contrast(50%);
+  filter: blur(0.1rem) hue-rotate(90deg) saturate(120%) contrast(50%); /* комбинирует эффекты */
 }
 
 .footer {

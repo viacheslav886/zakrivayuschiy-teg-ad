@@ -1,6 +1,8 @@
 /* Здесь вы напишете основную часть стилей страницы.
 
 Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
@@ -8,9 +10,280 @@
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
 */
 
-.page {
+.body {
+  display: flex;
+  flex-direction: column;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  inline-size: clamp(320px, 100vw, 700px);
+  margin: 100px auto;
+  background-color: #1a1a1a;
+  background-image:
+    repeating-linear-gradient(transparent, #d3d3d3 2px),
+    repeating-linear-gradient(90deg, transparent, #d3d3d3 2px),
+    linear-gradient(#e7e7e7, #1a1a1a);
+  background-size: cover;
+  font-family: var(--main-font);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-normal-weight);
+  font-variation-settings: var(--font-normal-weight-variation);
+}
+
+.header {
+  margin: 0 0 100px;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: clamp(120px, 100%, 128px) 0;
+  gap: 20px;
+  background-color: #fff;
+  border: var(--border);
+}
+
+.header__container-h1 {
+  font-family: var(--pixel-font);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__container-h2 {
+  text-transform: uppercase;
+  font-family: var(--pixel-font);
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 50px;
+  gap: 50px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: var(--border);
+}
+
+.section__title {
+  margin: 5px 10px;
+  font-size: var(--large-font-size);
+  font-variation-settings: var(--bold-font-weight-variation);
+}
+
+@supports (font-variation-settings: var(--bold-font-weight-variation)) {
+  .section__title {
+    font-variation-settings: var(--bold-font-weight-variation);
+  }
+}
+
+.section__image-container {
+  display: flex;
+  position: relative;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  overflow: hidden;
+}
+
+.section__image {
+  display: block;
+  width: 100%;
+}
+
+.section__image-label {
+  position: absolute;
+  top: 25px;
+  right: clamp(13px, 13px + 0.75vw, 25px);
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  font-family: var(--pixel-font);
+  -webkit-text-stroke: 1px #fff;
+}
+
+@supports (text-stroke: 1px #fff) {
+  .section__image-label {
+    text-stroke: 1px #fff;
+  }
+}
+
+.section__text-container {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  gap: 25px;
+}
+
+.section__text {
+  font-size: var(--large-font-size);
+}
+
+.section__button-container {
+  display: flex;
+  justify-content: end;
+  margin: 0 25px 25px;
+  gap: 12px;
+}
+
+.card__icon-button {
+  display: flex;
+  height: 100%;
+  padding: 0;
+  background-color: #fff;
+  border: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: var(--border);
+  outline-offset: -2px;
+}
+
+.card__like-button {
+  display: flex;
+  justify-content: center;
+  width: 130px;
+  padding: 10px;
+  transition: color 0.5s ease-in-out;
+}
+
+.button__text {
+  mix-blend-mode: difference;
+  font-family: var(--pixel-font);
+}
+
+.section:nth-child(2) .section__image {
+  filter: saturate(30%) brightness(120%) contrast(90%);
+}
+
+.section:nth-child(3) .section__image {
+  filter: saturate(300%);
+}
+
+.section:nth-child(4) .section__image {
+  filter: hue-rotate(30deg);
+}
+
+.section:nth-child(5) .section__image {
+  filter: invert(80%);
+}
+
+.section:nth-child(6) .section__image {
+  filter: sepia(90%);
+}
+
+.section:nth-child(7) .section__image {
+  filter: blur(1rem);
+}
+
+.section:nth-child(8) .section__image {
+  filter: blur(0.1rem) hue-rotate(90deg) saturate(120%) contrast(50%);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.save-button {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  gap: 8px;
+}
+
+@media (width <= 375px) {
+  .save-button {
+    flex-direction: column;
+  }
+}
+
+.save-button-icon {
+  mix-blend-mode: difference;
+}
+
+@media (width <= 375px) {
+  .save-button-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.dialog {
+  flex-direction: column;
+  max-width: 353px;
+  padding: 30px 42px;
+  border: var(--border);
+  gap: 30px;
+  font-family: var(--pixel-font);
+  font-size: var(--font-size-medium);
+}
+
+.dialog[open] {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  position: fixed;
+  z-index: 999;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.dialog__container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__container-icon {
+  min-width: 45px;
+}
+
+.dialog__container-text {
+  text-transform: uppercase;
+  line-height: 150%;
+}
+
+.dialog__close-button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+.border-button {
+  position: relative;
+  background-color: #fff;
+  border: var(--border);
+  color: #fff;
+  fill: #fff;
+  transition: color 0.3s ease-in, box-shadow 0.3s ease;
+}
+
+.border-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  height: 100%;
+  background-color: #000;
+  transition: right 0.5s ease-in-out;
+}
+
+.border-button:hover::before {
+  right: 0;
+  transition: right 0.5s ease-in-out;
+}
+
+.border-button:focus {
+  box-shadow: 2px 2px 0 rgb(0 0 0 / 1);
 }

@@ -1,11 +1,85 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+.card__icon-button .sparks {
+  fill: transparent;
+  transition: fill 0.3s ease 0.03s;
+}
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+.card__icon-button .main-body {
+  fill: transparent;
+  transition: fill 0.3s ease 0.03s;
+}
 
-*/
+.card__icon-button .core {
+  fill: transparent;
+  transition: fill 0.3s ease 0.03s;
+}
+
+.card__icon-button:hover .main-body {
+  fill: #000;
+  transition: fill 0.3s ease 0.05s;
+}
+
+.card__icon-button:hover .core {
+  fill: #000;
+  transition: fill 0.3s ease;
+}
+
+.card__icon-button:active .main-body {
+  fill: #ff0000;
+  transition: fill 0.3s ease 0.05s;
+}
+
+.card__icon-button:active .core {
+  fill: #ff0000;
+  transition: fill 0.3s ease;
+}
+
+.card__icon-button .is-liked {
+  animation: like 0.3s ease-in 0.1s;
+}
+
+.card__icon-button .is-liked .sparks {
+  animation: sparks 0.3s ease-in 0.3s;
+}
+
+.card__icon-button .is-liked .contour {
+  fill: #ff0000;
+  transition: fill 0.3s linear 0.06s;
+}
+
+.card__icon-button .is-liked .main-body {
+  fill: #ff0000;
+  transition: fill 0.3s linear 0.05s;
+}
+
+.card__icon-button .is-liked .core {
+  fill: #ff0000;
+  transition: fill 0.3s linear;
+}
+
+@keyframes like {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.25;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes sparks {
+  0% {
+    fill: transparent;
+  }
+
+  50% {
+    fill: #ff0000;
+  }
+
+  100% {
+    fill: transparent;
+  }
+}
